@@ -234,3 +234,10 @@ chmod +x /opt/usbacm/usbinit_z2538.sh;
 cp /etc/rc.local /etc/rc.local.bak;
 sed -i '/exit 0/i bash /opt/usbacm/usbinit.sh \nsleep 1 \nbash /opt/usbacm/usbinit_z2531.sh \nsleep 1 \nbash /opt/usbacm/usbinit_z2538.sh' /etc/rc.local
 
+cat >> /etc/config/adbyby <<'EOF'
+    list subscribe_url 'https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts'
+    list subscribe_url 'https://raw.githubusercontent.com/adbyby/xwhyc-rules/master/lazy.txt'
+    list subscribe_url 'https://gitee.com/halflife/list/raw/master/ad.txt'
+    list subscribe_url 'https://gitee.com/xinggsf/Adblock-Rule/raw/master/mv.txt'
+    list subscribe_url 'https://anti-ad.net/easylist.txt'
+EOF
