@@ -1,10 +1,10 @@
 #!/bin/bash
 
 echo
-echo "Install USB-acm driver & create hotplug support"
+echo "Install USB driver & create hotplug support"
 echo
 
-#echo "Run install some files"
+#echo "Run update & install some files"
 opkg update;
 opkg install libusb-1.0;
 opkg install usbutils --force-depends;
@@ -19,6 +19,10 @@ cd /tmp;
 modprobe cdc-acm;
 mkdir -p /opt/usbacm;
 cd;
+
+echo
+echo "Adding z-wave usb dongle"
+echo
 
 cat <<\EOF > /etc/hotplug.d/usb/20-zwave
 ZWAVE_PRODID="658/200/0"
@@ -52,7 +56,7 @@ if [ "${PRODUCT}" = "${ZWAVE_PRODID}" ]; then
 fi
 EOF
 
-cat <<\EOF > /root/usbinit.sh
+cat <<\EOF > /opt/uabacm/usbinit.sh
 #!/bin/bash
 
 ID_ZWAVE="658/200/0"
@@ -75,6 +79,6 @@ for i in $(dmesg | grep -Eo "cdc_acm.*ttyACM.*$" | cut -d " " -f 2); do
 done
 EOF
 
-chmod +x /root/usbinit.sh;
+chmod +x /opt/usbacm/usbinit.sh;
 cp /etc/rc.local /etc/rc.local.bak;
-sed -i '/exit 0/i sleep 1 \nbash /root/usbinit_z2538.sh' /etc/rc.local
+#sed -i '/exit 0/i sleep 1 \nbash /opt/uabzcm/usbinit_z2538.sh' /etc/rc.local
