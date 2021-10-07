@@ -12,11 +12,11 @@ opkg install kmod-usb-core --force-depends;
 opkg install  mosquitto-client
 
 #echo "get driver to module dir"
-wget https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/usb-acm -P /etc/modules.d
-echo "get driver to hotplug dir"
-wget https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/cdc-acm.ko -P /tmp;
-cd /tmp;
-modprobe cdc-acm;
+#wget https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/usb-acm -P /etc/modules.d
+#echo "get driver to hotplug dir"
+#wget https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/cdc-acm.ko -P /tmp;
+#cd /tmp;
+#modprobe cdc-acm;
 cd;
 
 cat <<\EOF > /etc/hotplug.d/usb/20-zwave
@@ -74,4 +74,4 @@ for i in $(dmesg | grep -Eo "cdc_acm.*ttyACM.*$" | cut -d " " -f 2); do
 done
 EOF
 
-
+chmod +x /root/usbinit.sh;
