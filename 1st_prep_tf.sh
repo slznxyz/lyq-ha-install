@@ -75,3 +75,5 @@ done
 EOF
 
 chmod +x /root/usbinit.sh;
+cp /etc/rc.local /etc/rc.local.bak;
+sed -i '/exit 0/i bash /root/usbinit_z2538.sh' /etc/rc.local;
