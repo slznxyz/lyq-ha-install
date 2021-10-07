@@ -17,7 +17,8 @@ opkg install  mosquitto-client
 #wget https://github.com/slznxyz/lyq-ha-install/raw/main/USB-ACM-5.14/cdc-acm.ko -P /tmp;
 #cd /tmp;
 #modprobe cdc-acm;
-cd;
+mkdir -p /opt/usbacm
+cd /tmp;
 
 cat <<\EOF > /etc/hotplug.d/usb/20-zwave
 ZWAVE_PRODID="658/200/0"
