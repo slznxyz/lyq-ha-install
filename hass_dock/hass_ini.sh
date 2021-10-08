@@ -21,4 +21,4 @@ touch known_devices.yaml;
 touch ui-lovelace.yaml;
 mkdir packages;
 mkdir www;
-nano configuration.yaml
+#vi configuration.yaml
