@@ -233,6 +233,7 @@ chmod +x /opt/usbacm/usbinit_z2538.sh;
 
 cp /etc/rc.local /etc/rc.local.bak;
 sed -i '/exit 0/i bash /opt/usbacm/usbinit.sh \nsleep 1 \nbash /opt/usbacm/usbinit_z2531.sh \nsleep 1 \nbash /opt/usbacm/usbinit_z2538.sh' /etc/rc.local
+sed -i  '/list listen_https/s/^/#/' /etc/config/uhttpd
 
 cat >> /etc/config/adbyby <<'EOF'
     list subscribe_url 'https://raw.githubusercontent.com/jdlingyu/ad-wars/master/hosts'
