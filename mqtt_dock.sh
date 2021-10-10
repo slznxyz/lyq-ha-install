@@ -24,6 +24,6 @@ allow_anonymous false
 password_file /mosquitto/config/pwfile.conf
 EOF
 
-docker exec mosquitto /bin/bash -c "touch /mosquitto/config/pwfile.conf;chmod -R 755 /mosquitto/config/pwfile.conf;mosquitto_passwd -b /mosquitto/config/pwfile.conf pi raspberry;exit";
+docker exec mosquitto /bin/sh -c "touch /mosquitto/config/pwfile.conf;chmod -R 755 /mosquitto/config/pwfile.conf;mosquitto_passwd -b /mosquitto/config/pwfile.conf pi raspberry;exit";
 
 docker restart mosquitto
