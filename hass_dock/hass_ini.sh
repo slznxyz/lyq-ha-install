@@ -25,3 +25,4 @@ mkdir www;
 wget https://github.com/slznxyz/lyq-ha-install/raw/main/haslayer/dio.zip;
 unzip -d /config/custom_components/slrelay dio.zip;
 rm -rf dio.zip;
+exit
