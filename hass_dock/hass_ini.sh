@@ -12,7 +12,22 @@ cp -r ./ha_file_explorer/custom_components/ha_file_explorer custom_components
 rm -rf ha_file_explorer;
 
 cat >> configuration.yaml <<'EOF'
-light: !include lights.yaml
+#light: !include lights.yaml
+rest:
+  - scan_interval: 3600
+    resource_template: http://tool.bitefu.net/jiari/?d={{ now().strftime('%Y%m%d') }}
+    sensor:   
+      - name: cn_workdays
+        value_template: >-
+          {% if value == '0' %}
+            工作日
+          {% elif value == '1' %}
+            假日
+          {% elif value == '2' %}
+            节日
+          {% else %}
+            unknown
+          {% endif %}
 EOF
 
 touch lights.yaml;
