@@ -9,6 +9,8 @@ opkg update;
 opkg install libusb-1.0;
 opkg install usbutils --force-depends;
 opkg install kmod-usb-core --force-depends;
+opkg install git-http;
+opkg install ca-bundle;
 opkg install  mosquitto-client
 
 #echo "get driver to module dir"
