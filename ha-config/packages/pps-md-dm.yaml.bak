@@ -1,3 +1,10 @@
+# homeassistant:
+  # customize_glob:
+    # "switch.switch*":
+      # icon: mdi:chip
+  # customize:
+    # switch.switch06:
+      # friendly_name: '小虎队'
 #######################0000000000000000000000########################
 modbus:
   - name: "hub1"
