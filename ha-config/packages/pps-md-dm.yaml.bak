@@ -1,0 +1,313 @@
+#######################0000000000000000000000########################
+modbus:
+  - name: "hub1"
+    type: tcp
+    host: 192.168.1.230
+    port: 502
+#######################0000000000000000000000########################
+
+######################AAAAAAAAAAAAAAAAAAAAAAAAAA#########################
+######################AAAAAAAAAAAAAAAAAAAAAAAAAA#########################    
+    switches:
+      - name: Switch00 #
+        slave: 2
+        address: 00 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 00 #
+            state_on: 1
+            state_off: 0
+      - name: Switch01 #
+        slave: 2
+        address: 01 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 01  #
+            state_on: 1
+            state_off: 0
+      - name: Switch02 #
+        slave: 2
+        address: 02 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 02 #
+            state_on: 1
+            state_off: 0
+      - name: Switch03 #
+        slave: 2
+        address: 03 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 03  #
+            state_on: 1
+            state_off: 0
+      - name: Switch04 #
+        slave: 2
+        address: 04 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 04 #
+            state_on: 1
+            state_off: 0
+      - name: Switch05 #
+        slave: 2
+        address: 05 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 05  #
+            state_on: 1
+            state_off: 0
+      - name: Switch06 #
+        slave: 2
+        address: 06 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 06 #
+            state_on: 1
+            state_off: 0
+      - name: Switch07 #
+        slave: 2
+        address: 07 #
+        command_on: 1
+        command_off: 0
+        scan_interval: 1
+        verify:
+            input_type: holding
+            address: 07  #
+            state_on: 1
+            state_off: 0    
+    ########################################
+    # #switches:
+      # - name: Switch00 #
+        # slave: 2
+        # address: 00 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 00 #
+            # state_on: 1
+            # state_off: 0
+      # - name: Switch01 #
+        # slave: 2
+        # address: 01 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 01  #
+            # state_on: 1
+            # state_off: 0
+      # - name: Switch02 #
+        # slave: 2
+        # address: 02 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 02 #
+            # state_on: 1
+            # state_off: 0
+      # - name: Switch03 #
+        # slave: 2
+        # address: 03 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 03  #
+            # state_on: 1
+            # state_off: 0
+      # - name: Switch04 #
+        # slave: 2
+        # address: 04 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 04 #
+            # state_on: 1
+            # state_off: 0
+      # - name: Switch05 #
+        # slave: 2
+        # address: 05 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 05  #
+            # state_on: 1
+            # state_off: 0
+      # - name: Switch06 #
+        # slave: 2
+        # address: 06 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 06 #
+            # state_on: 1
+            # state_off: 0
+      # - name: Switch07 #
+        # slave: 2
+        # address: 07 #
+        # command_on: 1
+        # command_off: 0
+        # scan_interval: 1
+        # verify:
+            # input_type: holding
+            # address: 07  #
+            # state_on: 1
+            # state_off: 0    
+######################AAAAAAAAAAAAAAAAAAAAAAAAAA#########################
+######################AAAAAAAAAAAAAAAAAAAAAAAAAA#########################   
+
+
+#####################BBBBBBBBBBBBBBBBBBBBBBBBBBB##########################################    
+#####################BBBBBBBBBBBBBBBBBBBBBBBBBBB##########################################    
+    sensors:
+      - name: Dim000Register
+        slave: 1
+        address: 00
+        scan_interval: 1
+    #sensors:
+      - name: Dim001Register
+        slave: 1
+        address: 01
+        scan_interval: 1
+#####################BBBBBBBBBBBBBBBBBBBBBBBBBBB##########################################    
+#####################BBBBBBBBBBBBBBBBBBBBBBBBBBB##########################################    
+
+
+####################CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC#####################################
+####################CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC#####################################
+input_number:
+  dim000_number:
+    name: Dim000 range
+    min: 1
+    max: 100
+    step: 1
+#input_number:
+  dim001_number:
+    name: Dim001 range
+    min: 1
+    max: 100
+    step: 1
+####################CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC#####################################
+####################CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC#####################################
+    
+    
+####################DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD########################
+####################DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD########################
+light:
+- platform: template
+  lights:
+    dim000:
+      friendly_name: "dim000"
+      # Convert reported brightness (0-100) to (0-255)
+      level_template: "{{ (states('sensor.dim000register') | float * 2.55) | round(0) }}"
+      # It's on if brightness > 0
+      value_template: "{{ states('sensor.dim000register') | int > 0 }}"    
+      turn_on:
+        - service: modbus.write_register
+          data:
+            hub: hub1
+            unit: 1
+            address: 00
+            # Need to convert brightness to a value between 1-100. 
+            value: "{{ states('input_number.dim000_number') | round(0) }}"
+      turn_off:
+        #- service: input_number.set_value
+        #  data_template:
+        #    entity_id: input_number.dimmerstue
+        #    value: "{{ ((brightness | float / 255 ) * 100) | round(0) }}"
+        - service: modbus.write_register
+          data:
+            hub: hub1
+            unit: 1
+            address: 00
+            # Need to convert brightness to a value between 1-100. 
+            value: 0
+      set_level:
+        - service: modbus.write_register
+          data:
+            hub: hub1
+            unit: 1
+            address: 00
+            value: "{{ ((brightness | float / 255 ) * 100) | round(0) }}"
+        - service: input_number.set_value
+          data_template:
+            entity_id: input_number.dim000_number
+            value: "{{ ((brightness | float / 255 ) * 100) | round(0) }}"
+            
+####################################################################
+#light:
+- platform: template
+  lights:
+    dim001:
+      friendly_name: "dim001"
+      # Convert reported brightness (0-100) to (0-255)
+      level_template: "{{ (states('sensor.dim001register') | float * 2.55) | round(0) }}"
+      # It's on if brightness > 0
+      value_template: "{{ states('sensor.dim001register') | int > 0 }}"    
+      turn_on:
+        - service: modbus.write_register
+          data:
+            hub: hub1
+            unit: 1
+            address: 01
+            # Need to convert brightness to a value between 1-100. 
+            value: "{{ states('input_number.dim001_number') | round(0) }}"
+      turn_off:
+        #- service: input_number.set_value
+        #  data_template:
+        #    entity_id: input_number.dimmerstue
+        #    value: "{{ ((brightness | float / 255 ) * 100) | round(0) }}"
+        - service: modbus.write_register
+          data:
+            hub: hub1
+            unit: 1
+            address: 01
+            # Need to convert brightness to a value between 1-100. 
+            value: 0
+      set_level:
+        - service: modbus.write_register
+          data:
+            hub: hub1
+            unit: 1
+            address: 01
+            value: "{{ ((brightness | float / 255 ) * 100) | round(0) }}"
+        - service: input_number.set_value
+          data_template:
+            entity_id: input_number.dim001_number
+            value: "{{ ((brightness | float / 255 ) * 100) | round(0) }}"
+####################DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD########################
+####################DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD########################
