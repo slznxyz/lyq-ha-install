@@ -8,6 +8,6 @@ sleep 2
 
 chmod -R 777 /opt/hassio/nodered
 
-docker exec nodered /bin/bash -c "npm install node-red-contrib-home-assistant-websocket;npm install node-red-contrib-modbus;npm install node-red-dashboard;";
+docker exec nodered /bin/bash -c "npm install node-red-contrib-home-assistant-websocket;npm install node-red-contrib-modbus;npm install node-red-dashboard;npm install tunnel;";
 
 docker restart nodered;
