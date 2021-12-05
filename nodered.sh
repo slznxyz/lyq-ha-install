@@ -8,6 +8,6 @@ sleep 2
 
 chmod -R 777 /opt/hassio/nodered
 
-docker exec nodered /bin/bash -c "npm install music-metadata;npm install qrcode;npm install safe-decode-uri-component;npm install express-fileupload;npm install node-red-contrib-home-assistant-websocket;npm install node-red-contrib-modbus;npm install node-red-dashboard;npm install pac-proxy-agent;npm install tunnel;";
+docker exec nodered /bin/bash -c "npm install md5;npm install music-metadata;npm install qrcode;npm install safe-decode-uri-component;npm install express-fileupload;npm install node-red-contrib-home-assistant-websocket;npm install node-red-contrib-modbus;npm install node-red-dashboard;npm install pac-proxy-agent;npm install tunnel;";
 
 docker restart nodered;
