@@ -37,14 +37,14 @@ serial:
 advanced:
   log_level: error
   channel: 25
-  pan_id: 0x1a88
+  pan_id: 0x1a68
 ## 6759
-  ext_pan_id: [0xF3, 0x3D, 0xC4, 0xE4, 0xD2, 0xC8, 0xC3, 0x8B]  
-  network_key: [1, 8, 8, 7, 8, 11, 11, 11, 0, 2, 4, 6, 8, 10, 12, 13]
+  ext_pan_id: [0xF4, 0x4D, 0xC4, 0xE5, 0xD2, 0xC8, 0xC4, 0x8B]  
+  network_key: [1, 8, 8, 7, 8, 12, 12, 12, 0, 2, 4, 6, 8, 10, 12, 13]
   last_seen: 'ISO_8601_local'
   homeassistant_discovery_topic: 'hass-zigbee'
   # Optional: Home Assistant status topic (default: shown below)
-  homeassistant_status_topic: 'slznok019/status'
+  homeassistant_status_topic: 'slznok021/status'
 
 frontend:
   port: 8099
