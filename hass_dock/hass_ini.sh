@@ -5,6 +5,7 @@ echo "hass docker initial script"
 echo
 
 pip3 config set global.index-url https://mirrors.aliyun.com/pypi/simple/;
+pip3 install miservice;
 pip3 install qiniu asgiref;
 wget -q -O - https://install.hacs.xyz | bash -
 git clone https://github.com.cnpmjs.org/shaonianzhentan/ha_file_explorer --depth=1
