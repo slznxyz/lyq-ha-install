@@ -39,8 +39,8 @@ advanced:
   channel: 25
   pan_id: 0x1a68
 ## 6759
-  ext_pan_id: [0xF4, 0x4D, 0xC4, 0xE5, 0xD2, 0xC8, 0xC4, 0x8B]  
-  network_key: [1, 8, 8, 7, 8, 12, 12, 12, 0, 2, 4, 6, 8, 10, 12, 13]
+  ext_pan_id: [0xD4, 0x4D, 0xF4, 0xE5, 0xD2, 0xD8, 0xC4, 0x8B]  
+  network_key: [2, 3, 8, 7, 5, 12, 12, 13, 0, 2, 4, 6, 8, 10, 12, 13]
   last_seen: 'ISO_8601_local'
   homeassistant_discovery_topic: 'hass-zigbee'
   # Optional: Home Assistant status topic (default: shown below)
