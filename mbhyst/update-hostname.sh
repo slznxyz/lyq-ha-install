@@ -14,3 +14,18 @@ sudo sed -i "s/armbian/$new_hostname/g" /etc/hostname
 sudo sed -i "s/armbian/$new_hostname/g" /etc/hosts
 
 echo "Hostname and hosts file updated successfully."
+# 询问用户是否需要重启
+read -p "Do you want to reboot now? (y/n): " answer
+
+case $answer in
+    [Yy]* )
+        echo "Rebooting now..."
+        sudo reboot
+        ;;
+    [Nn]* )
+        echo "Reboot canceled."
+        ;;
+    * )
+        echo "Invalid response. Exiting without reboot."
+        ;;
+esac
