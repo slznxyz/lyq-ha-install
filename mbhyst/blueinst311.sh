@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo
-echo "Install BlueTooth Drivers for M401A"
+echo "Install BlueTooth Drivers for CM311-1A"
 echo
 
 apt update && apt install -y apt-transport-https apparmor udisks2 gpiod lrzsz avahi-daemon bluez bluetooth pulseaudio-module-bluetooth bluez-firmware;
