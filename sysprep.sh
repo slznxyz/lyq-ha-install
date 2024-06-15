@@ -28,7 +28,7 @@ EOF
 apt update;
 apt upgrade -y;
 apt install mosquitto-clients -y;
-curl -L https://github.com/docker/compose/releases/download/v2.24.3/docker-compose-linux-aarch64 -o /usr/local/bin/docker-compose;
+curl -L https://github.com/docker/compose/releases/download/v2.27.1/docker-compose-linux-aarch64 -o /usr/local/bin/docker-compose;
 chmod +x /usr/local/bin/docker-compose;
 
 cat >> /root/docker.sh <<'EOF'
@@ -73,7 +73,7 @@ sleep 5
 
 echo "Install Docker now"
 #sudo apt install docker-ce -y
-sudo apt-get install docker-ce=5:24.0.7-1~debian.11~bullseye docker-ce-cli=5:24.0.7-1~debian.11~bullseye containerd.io
+sudo apt-get install docker-ce=5:26.1.4-1~debian.11~bullseye docker-ce-cli=5:26.1.4-1~debian.11~bullseye containerd.io
 
 
 echo
