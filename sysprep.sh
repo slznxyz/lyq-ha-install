@@ -72,8 +72,8 @@ sleep 5
 
 
 echo "Install Docker now"
-#sudo apt install docker-ce -y
-sudo apt-get install docker-ce=5:26.1.4-1~debian.11~bullseye docker-ce-cli=5:26.1.4-1~debian.11~bullseye containerd.io
+sudo apt install docker-ce -y
+#sudo apt-get install docker-ce=5:26.1.4-1~debian.11~bullseye docker-ce-cli=5:26.1.4-1~debian.11~bullseye containerd.io
 
 
 echo
