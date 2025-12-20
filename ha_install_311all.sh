@@ -24,13 +24,14 @@ echo "========== Step 1: sysprep + docker =========="
 
 wget -q https://raw.githubusercontent.com/hhalibo/mbh-bulseye/refs/heads/main/sysprep.sh
 wget -q https://raw.githubusercontent.com/hhalibo/mbh-bulseye/refs/heads/main/docker.sh
+wget -q https://raw.githubusercontent.com/slznxyz/lyq-ha-install/refs/heads/main/load_images_from_samba.sh
 
 
 
-
-chmod +x sysprep.sh docker.sh
+chmod +x sysprep.sh docker.sh load_images_from_samba.sh
 bash sysprep.sh
 bash docker.sh
+bash load_images_from_samba.sh
 
 wget -q https://raw.githubusercontent.com/hhalibo/mbh-bulseye/refs/heads/main/blueinst311.sh
 wget -q https://raw.githubusercontent.com/hhalibo/mbh-bulseye/refs/heads/main/update-hostname.sh
