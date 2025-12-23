@@ -1,0 +1,186 @@
+blueprint:
+  name: LocalTuya 9键遥控器（dp101 场景）
+  description: >
+    通过 localtuya_device_dp_triggered 事件监听指定 LocalTuya 设备的 dp=101，
+    根据 value 的 mode1～mode9 对应 9 个按键分别执行动作。
+    请在开发者工具 → 事件 中监听 localtuya_device_dp_triggered，
+    按遥控器任意键，把 device_id 复制到本蓝图中使用。
+  domain: automation
+  input:
+    lt_device_id:
+      name: LocalTuya 设备 ID
+      description: >
+        从“开发者工具 → 事件 → localtuya_device_dp_triggered”的事件数据中复制
+        data.device_id 的值（例如：6c7f4c3736274cfafy8xz）。
+      selector:
+        text: {}
+
+
+    lt_dp:
+      name: 数据点 dp
+      description: 遥控器场景使用的 dp，截图中是 101，一般保持默认即可。
+      default: "101"
+      selector:
+        text: {}
+
+
+    key1_action:
+      name: 按键 1 动作（value = mode1）
+      default: []
+      selector:
+        action: {}
+
+
+    key2_action:
+      name: 按键 2 动作（value = mode2）
+      default: []
+      selector:
+        action: {}
+
+
+    key3_action:
+      name: 按键 3 动作（value = mode3）
+      default: []
+      selector:
+        action: {}
+
+
+    key4_action:
+      name: 按键 4 动作（value = mode4）
+      default: []
+      selector:
+        action: {}
+
+
+    key5_action:
+      name: 按键 5 动作（value = mode5）
+      default: []
+      selector:
+        action: {}
+
+
+    key6_action:
+      name: 按键 6 动作（value = mode6）
+      default: []
+      selector:
+        action: {}
+
+
+    key7_action:
+      name: 按键 7 动作（value = mode7）
+      default: []
+      selector:
+        action: {}
+
+
+    key8_action:
+      name: 按键 8 动作（value = mode8）
+      default: []
+      selector:
+        action: {}
+
+
+    key9_action:
+      name: 按键 9 动作（value = mode9）
+      default: []
+      selector:
+        action: {}
+
+
+mode: single
+
+
+trigger:
+  - platform: event
+    event_type: localtuya_device_dp_triggered
+
+
+variables:
+  cfg_device_id: !input lt_device_id
+  cfg_dp: !input lt_dp
+
+
+condition: []
+
+
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode1' }}
+        sequence: !input key1_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode2' }}
+        sequence: !input key2_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode3' }}
+        sequence: !input key3_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode4' }}
+        sequence: !input key4_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode5' }}
+        sequence: !input key5_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode6' }}
+        sequence: !input key6_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode7' }}
+        sequence: !input key7_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode8' }}
+        sequence: !input key8_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.device_id == cfg_device_id
+                 and trigger.event.data.dp == cfg_dp
+                 and trigger.event.data.value == 'mode9' }}
+        sequence: !input key9_action
