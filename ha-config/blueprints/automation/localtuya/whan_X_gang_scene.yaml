@@ -1,0 +1,126 @@
+blueprint:
+  name: WHAN n键 LocalTuya 场景面板
+  description: >
+    通过 localtuya_device_dp_triggered 事件，将 WHAN 场景多功能键面板
+    的 DP 1 / 2 / 3 / 4 / 5 / 6 用作场景按键。
+    按键1/2/3/4/5/6 各自可以配置任意动作（开关灯、调用场景、脚本等）。
+  domain: automation
+  source_url: https://xzetsubou.github.io/hass-localtuya/ha_events/
+
+
+  input:
+    tuya_device_id:
+      name: Tuya 设备 device_id（必填）
+      description: >
+        在“开发者工具 → 事件 → 监听 localtuya_device_dp_triggered”中，
+        查看 data.device_id（例如 6c947a60e4ea92aef13zkwk），复制填到这里。
+      selector:
+        text: {}
+
+
+    button_1_action:
+      name: 按键1（DP 1）动作
+      description: 面板第1个按键触发时要执行的动作。
+      default: []
+      selector:
+        action: {}
+
+
+    button_2_action:
+      name: 按键2（DP 2）动作
+      description: 面板第2个按键触发时要执行的动作。
+      default: []
+      selector:
+        action: {}
+
+
+    button_3_action:
+      name: 按键3（DP 3）动作
+      description: 面板第3个按键触发时要执行的动作。
+      default: []
+      selector:
+        action: {}
+    
+    button_4_action:
+      name: 按键4（DP 4）动作
+      description: 面板第4个按键触发时要执行的动作。
+      default: []
+      selector:
+        action: {}
+    
+    button_5_action:
+      name: 按键5（DP 5）动作
+      description: 面板第5个按键触发时要执行的动作。
+      default: []
+      selector:
+        action: {}
+
+
+    button_6_action:
+      name: 按键6（DP 6）动作
+      description: 面板第6个按键触发时要执行的动作。
+      default: []
+      selector:
+        action: {}
+        
+mode: restart
+max_exceeded: silent
+
+
+trigger:
+  - platform: event
+    event_type: localtuya_device_dp_triggered
+
+
+variables:
+  cfg_device_id: !input tuya_device_id
+
+
+condition:
+  - condition: template
+    value_template: >
+      {{ trigger.event.data.device_id == cfg_device_id }}
+
+
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.dp == '1' }}
+        sequence: !input button_1_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.dp == '2' }}
+        sequence: !input button_2_action
+
+
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.dp == '3' }}
+        sequence: !input button_3_action
+        
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.dp == '4' }}
+        sequence: !input button_4_action
+        
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.dp == '5' }}
+        sequence: !input button_5_action
+    
+      - conditions:
+          - condition: template
+            value_template: >
+              {{ trigger.event.data.dp == '6' }}
+        sequence: !input button_6_action
+
+
+    default: []
