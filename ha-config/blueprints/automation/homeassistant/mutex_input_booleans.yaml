@@ -1,0 +1,30 @@
+blueprint:
+  name: 互锁的 input_boolean（多选一）
+  description: 只要其中一个被打开，其余全部关闭
+  domain: automation
+  input:
+    members:
+      name: 成员列表
+      description: 选择要互锁的 input_boolean（可多选）
+      selector:
+        entity:
+          domain: input_boolean
+          multiple: true
+
+mode: restart
+
+trigger:
+  - platform: state
+    entity_id: !input members
+    to: "on"
+
+variables:
+  members: !input members
+  others: >
+    {{ (members if members is iterable else [members])
+       | reject('equalto', trigger.entity_id) | list }}
+
+action:
+  - service: input_boolean.turn_off
+    target:
+      entity_id: "{{ others }}"
