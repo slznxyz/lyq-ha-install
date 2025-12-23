@@ -1,0 +1,61 @@
+# 3-gang switch with backlight
+
+- switch:
+    id: "24"
+    friendly_name: "L1"
+    entity_category: None
+    restore_on_reconnect: false
+    is_passive_entity: false
+    platform: "switch"
+
+- switch:
+    id: "25"
+    friendly_name: "L2"
+    entity_category: None
+    restore_on_reconnect: false
+    is_passive_entity: false
+    platform: "switch"
+
+- switch:
+    id: "26"
+    friendly_name: "L3"
+    entity_category: None
+    restore_on_reconnect: false
+    is_passive_entity: false
+    platform: "switch"
+
+- switch:
+    id: "36"
+    friendly_name: "Backlight"
+    entity_category: None
+    restore_on_reconnect: false
+    is_passive_entity: false
+    platform: "switch"
+
+###############################################
+#                 SELECTS                     #
+###############################################
+
+- select:
+    id: "18"
+    friendly_name: "switch_mode_l1"
+    entity_category: config
+    select_options:
+      switch_1: "Switch Mode"
+      scene_1: "Scene Mode"
+
+- select:
+    id: "19"
+    friendly_name: "switch_mode_l2"
+    entity_category: config
+    select_options:
+      switch_2: "Switch Mode"
+      scene_2: "Scene Mode"
+
+- select:
+    id: "20"
+    friendly_name: "switch_mode_l3"
+    entity_category: config
+    select_options:
+      switch_3: "Switch Mode"
+      scene_3: "Scene Mode"
