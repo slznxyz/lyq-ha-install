@@ -1,0 +1,460 @@
+resources:
+  - type: module
+    url: /local/community/simple-clock-card.js
+  - type: module
+    url: /local/community/button-card/button-card.js
+  - type: module
+    url: /local/community/lovelace-colorfulclouds-weather-card/colorfulclouds-weather-card.js
+title: 数联智能
+background: center / cover no-repeat url("/local/bg9.jpg") fixed
+views:
+  - icon: mdi:home
+    # badges:
+      # - entity: binary_sensor.updater
+      # - entity: sun.sun
+      # - entity: device_tracker.huawei_liurui
+      # - entity: device_tracker.huawei_wuaijun
+    cards:
+      - type: custom:simple-clock-card
+        use_military: false
+        hide_seconds: false
+      # - type: vertical-stack
+        # cards:
+          # - type: glance
+            # entities:
+              # - entity: binary_sensor.updater
+              # - entity: person.liurui
+                # card_mod:
+                  # style: |
+                    # ha-card {
+                      # color: red;
+                    # }
+              # - entity: sun.sun           
+      - type: vertical-stack
+        cards:
+          - type: glance
+            entities:
+              - entity: script.away_mode
+              # - entity: script.welcome_mode
+              - entity: scene.quan_wu_ying_bin
+              - entity: scene.quan_wu_wen_xin
+              - entity: scene.quan_wu_jie_neng
+              - entity: scene.quan_wu_ming_liang
+      - type: media-control
+        entity: media_player.fh_wise_media_player
+      # - type: custom:weather-card
+        # entity: weather.liurui
+        # houer_forecast: true
+        # show_forecast: true
+        # icon: /local/community/lovelace-colorfulclouds-weather-card/icons/animated/
+        # name: 润景园著
+        # secondary_info_attribute: aqi_description
+######################################################
+##############        客厅茶区          ##############
+######################################################
+  - title: ''
+    path: television-play
+    icon: mdi:television-play
+    cards:
+      - type: media-control
+        entity: media_player.fh_wise_media_player_1
+      - type: media-control
+        entity: media_player.sony_bravia_tv
+      - type: entities
+        state_color: true
+        title: 环境检测M1
+        show_header_toggle: true
+        entities:
+          - sensor.zm1_b0f8931f0689_temperature
+          - sensor.zm1_b0f8931f0689_humidity
+          - sensor.zm1_b0f8931f0689_hcho
+          - sensor.zm1_b0f8931f0689_pm25
+          - light.zm1_b0f8931f0689_brightness
+      - type: entities
+        state_color: true
+        title: 客厅
+        show_header_toggle: true
+        entities:
+          - light.keting_chaqu_zhudeng_right
+          - light.keting_dengdai_tg
+          - light.keting_bei_qiqiangdeng_tg
+          - light.keting_neiquan_tongdeng_tg
+          - light.keting_dianshiqiang_left
+          - light.keting_dianshiqiang_right
+          - light.keting_beijing_shedeng_bideng_right
+          - light.keting_dongce_zhanshigui_tg
+          - light.keting_dong_zhanshigui_left
+          - light.keting_xi_jiugui_right
+          - light.keting_dong_zhanshigui_right
+          - light.keting_xi_jiugui_left
+      - type: entities
+        state_color: true
+        title: 茶区
+        show_header_toggle: true
+        entities:
+          - light.keting_chaqu_zhudeng_left
+          - light.keting_beijing_shedeng_bideng_left
+      - type: entities
+        state_color: true
+        title: 阳台
+        show_header_toggle: true
+        entities:
+          - light.keting_yangtai_tongdeng_tg
+          - light.keting_yangtai_dengdai_tg
+          - light.keting_qiangzhu_nance_right
+          - switch.keting_qiangzhu_nance_left
+          - cover.keting_bulian_g
+          - cover.keting_shalian_g
+######################################################
+###############        公共区          ###############
+######################################################
+  - title: ''
+    path: account-group-outline
+    icon: mdi:account-group-outline
+    cards:
+      - type: media-control
+        entity: media_player.fh_wise_media_player_4
+      - type: entities
+        state_color: true
+        title: 门厅
+        show_header_toggle: true
+        entities:
+          - light.menting_dengdai_tg          
+          - light.menting_tongdeng_tg
+          - light.damen_xuanguan_right
+          - light.damen_xuanguan_left  
+      - type: entities
+        state_color: true
+        title: 走廊
+        show_header_toggle: true
+        entities:
+          - light.gongwei_zoulang_menkou_left
+          - light.ciwo_yin_wsj_menkou_zoulang_left
+          - light.ciwo_yin_wsj_zoulan_xuanguan_tg
+      - type: entities
+        state_color: true
+        title: 公卫
+        show_header_toggle: true
+        entities:
+          - light.gongwei_menkou_xice_left
+          - light.gongwei_menkou_dongce_right
+          - switch.gongwei_menkou_dongce_left
+######################################################
+###############        就餐区          ###############
+######################################################
+  - title: ''
+    path: silverware-fork-knife
+    icon: mdi:silverware-fork-knife  
+    cards:
+      - type: media-control
+        entity: media_player.fh_wise_media_player_2
+      - type: entities
+        state_color: true
+        title: 厨房
+        show_header_toggle: true
+        entities:
+          - light.chufang_menkou_left
+          - light.chufang_menkou_right
+      - type: entities
+        state_color: true
+        title: 餐厅
+        show_header_toggle: true
+        entities:
+          - light.canting_shedeng_zhudeng_right
+          - light.canting_dengdai_tg
+          - light.canting_neiquan_tongdeng_tg
+          - light.canting_waiquan_tongdeng_tg
+          - light.canting_shedeng_zhudeng_left
+          - light.canting_neiquan_dengdai_tg
+          - light.canting_beijing_dengdai_tg
+          - light.canting_kaifangge_left
+######################################################
+################        主卧          ################
+######################################################
+  - title: ''
+    path: bed-king-outline
+    icon: mdi:bed-king-outline
+    cards:
+      - type: media-control
+        entity: media_player.fh_wise_media_player_3
+      - type: entities
+        state_color: true
+        title: 环境检测M1
+        show_header_toggle: true
+        entities:
+          - sensor.zm1_b0f893224e5a_temperature
+          - sensor.zm1_b0f893224e5a_humidity
+          - sensor.zm1_b0f893224e5a_hcho
+          - sensor.zm1_b0f893224e5a_pm25
+          - light.zm1_b0f893224e5a_brightness
+      - type: entities
+        state_color: true
+        title: 玄关
+        show_header_toggle: true
+        entities:
+          - light.zhuwo_xuanguan_tongdeng_tg
+          - light.zhuwo_zoulang_tongdeng_tg
+      - type: entities
+        state_color: true
+        title: 主卧
+        show_header_toggle: true
+        entities:
+          - light.zhuwo_chuangtou_beice_left
+          - light.zhuwo_chuangtou_beice_tg
+          - light.zhuwo_dengdai_tg
+          - light.zhuwo_xice_tongdeng_tg
+          - light.zhuwo_nance_tongdeng_tg
+          - light.zhuwo_chuangdi_left
+          - cover.zhuwo_bulian_a
+          - cover.zhuwo_shalian_a
+      - type: entities
+        state_color: true
+        title: 衣帽间
+        show_header_toggle: true
+        entities:
+          - light.zhuwo_yimaojian_tongdeng_tg
+          - light.zhuwo_yimaojian_dengdai_tg
+          - light.zhuwo_yimaojian_kaifangge_left
+          - cover.rj412001hassmart_172_16_100_244
+          - cover.rj412001hassmart_172_16_100_245
+      - type: entities
+        state_color: true
+        title: 卫生间
+        show_header_toggle: true
+        entities:
+          - light.zhuwo_wsj_menkou_duimian_left
+          - light.zhuwo_wsj_menkou_duimian_right
+          - light.zhuwei_menkou_xice_left
+          - light.zhuwei_menkou_xice_right
+          - light.zhuwei_menkou_dongce_right
+          - light.zhuwei_menkou_dongce_left
+          - cover.zhuwei_yushi_juanlian
+######################################################
+###############        次卧阳          ###############
+######################################################
+  - title: ''
+    path: bunk-bed-outline
+    icon: mdi:bunk-bed-outline
+    cards:
+      - type: entities
+        state_color: true
+        title: 环境检测M1
+        show_header_toggle: true
+        entities:
+          - sensor.zm1_b0f893276988_temperature
+          - sensor.zm1_b0f893276988_humidity
+          - sensor.zm1_b0f893276988_hcho
+          - sensor.zm1_b0f893276988_pm25
+          - light.zm1_b0f893276988_brightness
+      - type: entities
+        state_color: true
+        title: 玄关
+        show_header_toggle: true
+        entities:
+          - light.ciwo_yang_xuanguan_shedeng_tg
+          - light.ciwo_yang_zoulang_tongdeng_tg
+      - type: entities
+        state_color: true
+        title: 次卧阳
+        show_header_toggle: true
+        entities:
+          - light.ciwo_yang_nanchuangtou_nan_right
+          - light.ciwo_yang_woshi_chuanglian_dengdai_tg
+          - light.ciwo_yang_dongce_tongdeng_tg
+          - light.ciwo_yang_nance_tongdeng_tg
+          - light.ciwo_yang_nanchuangtou_nan_left
+          - light.ciwo_yang_beice_qianggui_left
+          - light.ciwo_yang_chuangdi_left
+          - cover.ciwo_yang_bulian_a
+          - cover.ciwo_yang_shalian_a
+      - type: entities
+        state_color: true
+        title: 卫生间
+        show_header_toggle: true
+        entities:
+          - light.ciwo_yang_wsj_nance_right
+          - light.ciwo_yang_wsj_nance_left
+          - light.ciwo_yang_wsj_shuangjian_left
+          - light.ciwo_yang_wsj_shuangjian_right
+          - light.ciwo_yang_wsj_beice_right
+          - light.ciwo_yang_wsj_zhongjian_left
+          - light.ciwo_yang_wsj_beice_left
+          - light.ciwo_yang_wsj_zhongjian_right
+######################################################
+###############        次卧阴          ###############
+######################################################
+  - title: ''
+    path: bunk-bed
+    icon: mdi:bunk-bed
+    cards:
+      - type: entities
+        state_color: true
+        title: 环境检测M1
+        show_header_toggle: true
+        entities:
+          - sensor.zm1_b0f893222a5a_temperature
+          - sensor.zm1_b0f893222a5a_humidity
+          - sensor.zm1_b0f893222a5a_hcho
+          - sensor.zm1_b0f893222a5a_pm25
+          - light.zm1_b0f893222a5a_brightness
+      - type: entities
+        state_color: true
+        title: 次卧阴
+        show_header_toggle: true
+        entities:
+          - light.ciwo_yin_zhongjian_tongdeng_tg
+          - light.ciwo_yin_chuanglian_dengdai_tg
+          - light.ciwo_yin_chuangtou_nance_left
+          - light.ciwo_yin_beijing_dengdai_tg
+          - light.ciwo_yin_nance_tongdeng_tg
+          - light.ciwo_yin_xice_tongdeng_tg
+          - light.ciwo_yin_chuangdi_left
+          - cover.ciwo_yin_bulian_a
+          - cover.ciwo_yin_shalian_a
+      - type: entities
+        state_color: true
+        title: 卫生间
+        show_header_toggle: true
+        entities:
+          # - light.ciwo_yin_wsj_dongce_left
+          - light.ciwo_yin_wsj_dongce_right
+          - light.ciwo_yin_wsj_xice_right
+          - light.ciwo_yin_wsj_xice_left
+          - light.ciwo_yin_wsj_zhong_right
+          - light.ciwo_yin_wsj_zhong_left
+######################################################
+###############        儿童房          ###############
+######################################################
+  - title: ''
+    path: google-street-view
+    icon: mdi:google-street-view
+    cards:
+      - type: entities
+        state_color: true
+        title: 环境检测M1
+        show_header_toggle: true
+        entities:
+          - sensor.zm1_b0f8932766d6_temperature
+          - sensor.zm1_b0f8932766d6_humidity
+          - sensor.zm1_b0f8932766d6_hcho
+          - sensor.zm1_b0f8932766d6_pm25
+          - light.zm1_b0f8932766d6_brightness
+      - type: entities
+        state_color: true
+        title: 儿童房
+        show_header_toggle: true
+        entities:
+          - light.rj412001nano_dimmer_2
+          - light.rj412001nano_dimmer
+          - light.rj412001nano_dimmer_3
+          - light.ertongfang_chuangdi_left
+          - cover.ertongfang_bulian_a
+          - cover.ertongfang_shalian_a
+######################################################
+################        客房          ################
+######################################################
+  - title: ''
+    path: bed
+    icon: mdi:bed
+    cards:
+      - type: entities
+        state_color: true
+        title: 客房
+        show_header_toggle: true
+        entities:
+          - light.kefang_chuangtou_right
+          - light.kefang_dengdai_tg
+          - light.kefang_xiantiaodeng_left
+          - light.kefang_chuangtou_left
+          - light.kefang_xuanguan_shedeng_tg
+          - light.kefang_kaifangge_left
+          - light.kefang_chuangdi_left
+          - cover.kefang_bulian_a
+          - cover.kefang_shalian_a
+######################################################
+################        衣帽区         ###############
+######################################################
+  - title: ''
+    path: tshirt-crew-outline
+    icon: mdi:tshirt-crew-outline
+    cards:
+      - type: entities
+        state_color: true
+        title: 洗衣房
+        show_header_toggle: true
+        entities:
+          - light.xiyifang_menkou_left
+          - light.xiyifang_menkou_right
+      - type: entities
+        state_color: true
+        title: 大衣帽间
+        show_header_toggle: true
+        entities:
+          - light.yimaojian_da_tongdeng_tg
+          - light.yimaojian_da_dengdai_tg
+          - light.da_yimaojian_guiti_dengdai_left
+######################################################
+################        安防          ################
+######################################################
+  - title: ''
+    path: security
+    icon: mdi:security
+    cards:
+      - type: entities
+        state_color: true
+        title: 燃气报警器
+        show_header_toggle: true
+        entities:
+          - binary_sensor.chufang_ranqi_baojing_gas
+      - type: entities
+        state_color: true
+        title: 水浸传感器
+        show_header_toggle: true
+        entities:
+          - binary_sensor.shuijin_shuixideng_water_leak
+          - binary_sensor.shuijin_chufang_water_leak
+          - binary_sensor.shuijin_shuizhajian_water_leak
+          - binary_sensor.shuijin_chufang_caozuotai_water_leak
+          - binary_sensor.shuijin_zhuwei_water_leak
+          - binary_sensor.shuijin_ciwo_yang_wei_water_leak
+          - binary_sensor.shuijin_ciwo_yin_wei_water_leak
+          - binary_sensor.shuijin_kewei_water_leak
+          - binary_sensor.shuijin_gongwei_water_leak
+######################################################
+################        空调          ################
+######################################################
+  - title: ''
+    path: home-thermometer-outline
+    icon: mdi:home-thermometer-outline
+    cards:
+      - type: thermostat
+        entity: climate.rj412001ciwo_yang
+      - type: thermostat
+        entity: climate.rj412001zhuwo
+      - type: thermostat
+        entity: climate.rj412001keting
+      - type: thermostat
+        entity: climate.rj412001keting_yangtai
+      - type: thermostat
+        entity: climate.rj412001ciwo_yin
+      - type: thermostat
+        entity: climate.rj412001ertongfang
+      - type: thermostat
+        entity: climate.rj412001yimaojian_da
+      - type: thermostat
+        entity: climate.rj412001canting
+      - type: thermostat
+        entity: climate.rj412001kefang
+      - type: thermostat
+        entity: climate.rj412001chufang
+
+      
+      
+      
+      
+      
+      
+      
+
+
+
