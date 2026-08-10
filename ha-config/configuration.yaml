@@ -12,6 +12,7 @@ http:
   use_x_forwarded_for: true
   trusted_proxies:
     - 127.0.0.1
+    - ::1
 websitechecker:
   websites:
     - url: https://www.google.com
@@ -29,6 +30,7 @@ frontend:
 automation: !include automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+#knx: !include knx.yaml
 
 #light: !include lights.yaml
 rest:
@@ -86,8 +88,17 @@ recorder:
   exclude:
     entities:
       - sun.sun
+    entity_globs:
+      - button.*_info    
 logger:
   default: info
   filters:
     homeassistant.components.mqtt.mixins:
     - "MQTT entity name starts with the device name in your config"
+# Custom Panels
+panel_custom:
+  - name: Supervisor
+    url_path: hassio/system # url_path needs to be unique for each panel_custom config
+    sidebar_title: Supervisor
+    sidebar_icon: mdi:home-assistant # https://materialdesignicons.com/
+    module_url: /local/panel-redirect.js # 'local' is '/config/www/'
