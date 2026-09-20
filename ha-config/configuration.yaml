@@ -8,11 +8,11 @@ homeassistant:
         # - 192.168.1.0/24
         # - 127.0.0.1
   packages: !include_dir_named packages
-http:
-  use_x_forwarded_for: true
-  trusted_proxies:
-    - 127.0.0.1
-    - ::1
+# http:
+#   use_x_forwarded_for: true
+#   trusted_proxies:
+#     - 127.0.0.1
+#     - ::1
 websitechecker:
   websites:
     - url: https://www.google.com
@@ -95,10 +95,21 @@ logger:
   filters:
     homeassistant.components.mqtt.mixins:
     - "MQTT entity name starts with the device name in your config"
+# lovelace:
+#   mode: yaml
 # Custom Panels
-panel_custom:
-  - name: Supervisor
-    url_path: hassio/system # url_path needs to be unique for each panel_custom config
-    sidebar_title: Supervisor
-    sidebar_icon: mdi:home-assistant # https://materialdesignicons.com/
-    module_url: /local/panel-redirect.js # 'local' is '/config/www/'
+# panel_custom:
+#   - name: Supervisor
+#     url_path: hassio/system # url_path needs to be unique for each panel_custom config
+#     sidebar_title: Supervisor
+#     sidebar_icon: mdi:home-assistant # https://materialdesignicons.com/
+#     module_url: /local/panel-redirect.js # 'local' is '/config/www/'
+# lovelace:
+#   resource_mode: yaml
+#   dashboards:
+#     lovelace:
+#       mode: yaml
+#       filename: ui-lovelace.yaml
+#       title: Overview
+#       icon: mdi:view-dashboard
+#       show_in_sidebar: true
